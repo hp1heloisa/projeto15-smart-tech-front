@@ -16,7 +16,7 @@ export default function SignUpPage() {
 
   return (
     <SingUpContainer>
-        <img src={logo} alt="logo" /> 
+      <img src={logo} alt="logo" /> 
       <form>
         <input placeholder="Nome" type="text" value={nome} onChange={e => setNome(e.target.value)} required/>
         <input placeholder="E-mail" type="email" value={email} onChange={e => setEmail(e.target.value)} required/>
