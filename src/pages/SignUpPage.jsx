@@ -2,7 +2,8 @@ import { Link, useNavigate } from "react-router-dom"
 import styled from "styled-components"
 import axios from "axios"
 import { useState } from "react"
-import logo from "../assets/logo-sem-fundo.png";
+import NavbarSec from "../components/NavBarSec";
+import Footer from "../components/Footer";
 
 export default function SignUpPage() {
 
@@ -16,7 +17,7 @@ export default function SignUpPage() {
 
   return (
     <SingUpContainer>
-      <img src={logo} alt="logo" /> 
+      <NavbarSec />
       <form>
         <input placeholder="Nome" type="text" value={nome} onChange={e => setNome(e.target.value)} required/>
         <input placeholder="E-mail" type="email" value={email} onChange={e => setEmail(e.target.value)} required/>
@@ -28,6 +29,7 @@ export default function SignUpPage() {
       <Link to={"/"} >
         Já tem uma conta? Entre agora!
       </Link>
+      <Footer />
     </SingUpContainer>
   )
 }
@@ -38,9 +40,7 @@ const SingUpContainer = styled.section`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  img {
-    width: 300px;
-    margin: none;
-  }
+  padding-top: 100px;
+  padding-bottom: 72px;
 `
 

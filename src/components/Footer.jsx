@@ -14,4 +14,7 @@ const Container = styled.div`
 
   background: #003a6a;
   color: #f3f3f3;
+  position: fixed;
+  bottom: 0;
+  left;
 `;
