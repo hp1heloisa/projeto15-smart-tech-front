@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import logo from "../assets/logo-sem-fundo.png"
 
-export default function Navbar() {
+export default function NavbarSec() {
   return (
     <Container>
       <img src={logo} alt="logo smart tech" />
