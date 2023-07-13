@@ -4,15 +4,23 @@ import Menu from "../assets/menu.png";
 import Lupa from "../assets/lupa.png";
 import Logo from "../assets/logo-sem-fundo.png";
 import Carrinho from "../assets/carrinho.png";
+import { useNavigate } from "react-router-dom";
 
 export default function NavBar() {
 
     const [pesquisa, setPesquisa] = useState('');
+    const navigate = useNavigate(true);
+
+    function backToHome(){
+        navigate("/")
+        return
+    }
+
 
     return(
         <ContainerGeral>
                 <MenuImage src={Menu} alt="menu-button" />
-                <LogoImage src={Logo} alt="Logo-image" />
+                <LogoImage onClick={backToHome} src={Logo} alt="Logo-image" />
                 <SearchBar>
                     <input placeholder="Pesquisar produto..." type="text" value={pesquisa} onChange={e => setPesquisa(e.target.value)} required/>
                     <img src={Lupa} alt="lupa-icon" />

@@ -1,4 +1,5 @@
 import styled from "styled-components"
+import NavBar from "../components/NavBar";
 
 const teste = {
     img: "https://cdn.dooca.store/194/products/sony-ps5_640x640+fill_ffffff.jpg?v=1616039046&webp=0",
@@ -8,28 +9,29 @@ const teste = {
 };
 
 export default function ProductPage() {
-    
-    return(
-        <ProductContainer>
-            <h1>{teste.name}</h1>
-            <Product>
-                <Image>
-                    <img src={teste.img} />
-                </Image>
-                <Price>
-                    <Description>
-                        <p>Descrição:</p>
-                        {teste.description}
-                    </Description>
-                    <div>
-                        <h3>R${(teste.value.toFixed(2)).toString().replace(".", ",")}</h3>
-                        <BuyButton>Comprar</BuyButton>
-                    </div>
-                </Price>
-                
-            </Product>
-            
-        </ProductContainer>
+
+    return (
+        <>
+            <NavBar />
+            <ProductContainer>
+                <h1>{teste.name}</h1>
+                <Product>
+                    <Image>
+                        <img src={teste.img} />
+                    </Image>
+                    <Price>
+                        <Description>
+                            <p>Descrição:</p>
+                            {teste.description}
+                        </Description>
+                        <div>
+                            <h3>R${(teste.value.toFixed(2)).toString().replace(".", ",")}</h3>
+                            <BuyButton>Comprar</BuyButton>
+                        </div>
+                    </Price>
+                </Product>
+            </ProductContainer>
+        </>
     )
 }
 

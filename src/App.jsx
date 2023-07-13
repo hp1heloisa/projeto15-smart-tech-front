@@ -5,16 +5,15 @@ import SignUpPage from "./pages/SignUpPage";
 import LogInPage from "./pages/LogInPage";
 import CarrinhoPage from "./pages/CarrinhoPage";
 import styled from "styled-components";
-import NavBar from "./components/NavBar";
+
 
 export default function App() {
 
   return (
     <PagesContainer>
-      <NavBar />
       <BrowserRouter>
         <Routes>
-          <Route path="/home" element={<HomePage/>} />
+          <Route path="/" element={<HomePage/>} />
           <Route path="/produtos/:idProduto" element={<ProductPage />} />
           <Route path="/cadastro" element={<SignUpPage />} />
           <Route path="/login" element={<LogInPage />} />
