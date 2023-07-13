@@ -17,12 +17,18 @@ export default function ProductPage() {
                     <img src={teste.img} />
                 </Image>
                 <Price>
-                    <h3>R${(teste.value.toFixed(2)).toString().replace(".", ",")}</h3>
-                    <BuyButton>Comprar</BuyButton>
+                    <Description>
+                        <p>Descrição:</p>
+                        {teste.description}
+                    </Description>
+                    <div>
+                        <h3>R${(teste.value.toFixed(2)).toString().replace(".", ",")}</h3>
+                        <BuyButton>Comprar</BuyButton>
+                    </div>
                 </Price>
                 
             </Product>
-            <h2>{teste.description}</h2>
+            
         </ProductContainer>
     )
 }
@@ -35,7 +41,6 @@ const ProductContainer = styled.div`
 
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
 
     border-radius: 4px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
@@ -47,24 +52,18 @@ const ProductContainer = styled.div`
         font-weight: 700;
         padding-left: 10px;
     }
-    h2{
-        color: black;
-        font-size: 14px;
-        font-weight: 400;
-        margin-top: 15px;
-        padding-left: 10px;
-    }
 `
 
 const Product = styled.div`
     width: 100%;
     height: auto;
     display: flex;
+    margin: auto;
    
 `
 const Image = styled.div`
-    width: 450px;
-    height: 320px;
+    width: 460px;
+    height: 360px;
     background-color: white;
     display: flex;
     justify-content: center;
@@ -76,10 +75,25 @@ const Image = styled.div`
         object-fit: cover;
     }
 `
+const Description = styled.div`
+    
+    color: black;
+    font-size: 14px;
+    font-weight: 400;
+
+    p{
+        color: #0060b1;
+        font-size: 20px;
+        font-weight: 700;
+        margin-bottom: 7px;
+    }
+    
+`
 const Price = styled.div`
     width: 470px;
     display: flex;
     justify-content: space-between;
+    flex-direction: column;
 
     h3{
         color: #0060b1;
