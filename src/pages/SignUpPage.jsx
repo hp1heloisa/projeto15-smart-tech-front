@@ -18,6 +18,7 @@ export default function SignUpPage() {
   return (
     <SingUpContainer>
       <NavbarSec />
+      <h1>CRIAR CONTA</h1>
       <form>
         <input placeholder="Nome" type="text" value={nome} onChange={e => setNome(e.target.value)} required/>
         <input placeholder="E-mail" type="email" value={email} onChange={e => setEmail(e.target.value)} required/>
