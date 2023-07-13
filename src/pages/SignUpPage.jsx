@@ -43,5 +43,9 @@ const SingUpContainer = styled.section`
   align-items: center;
   padding-top: 100px;
   padding-bottom: 72px;
+  h1{
+    font-size: 100px;
+    color: orange;
+  }
 `
 
