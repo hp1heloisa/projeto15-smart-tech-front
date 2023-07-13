@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import ProductsPage from "./pages/ProductsPage";
+import HomePage from "./pages/HomePage";
 import ProductPage from "./pages/ProductPage";
 import SignUpPage from "./pages/SignUpPage";
 import LogInPage from "./pages/LogInPage";
@@ -14,7 +14,7 @@ export default function App() {
       <NavBar />
       <BrowserRouter>
         <Routes>
-          <Route path="/produtos" element={<ProductsPage />} />
+          <Route path="/home" element={<HomePage/>} />
           <Route path="/produtos/:idProduto" element={<ProductPage />} />
           <Route path="/cadastro" element={<SignUpPage />} />
           <Route path="/login" element={<LogInPage />} />
