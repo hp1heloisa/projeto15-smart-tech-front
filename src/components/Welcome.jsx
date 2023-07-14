@@ -4,7 +4,6 @@ import styled from "styled-components";
 export default function Welcome() {
 
     const navigate = useNavigate(true);
-
     let data = JSON.parse(localStorage.getItem("dataSmartTech"));
     if (!data) {
         return(

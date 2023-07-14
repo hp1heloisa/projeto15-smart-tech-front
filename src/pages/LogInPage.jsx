@@ -53,7 +53,7 @@ const SingUpContainer = styled.section`
     font-size: 26px;
   }
   a {
-    color: #ff6500;
+    color: #ED8811;
     font-weight: 700;
     font-size: 15px;
     line-height: 18px;
