@@ -21,7 +21,7 @@ export default function SignUpPage() {
       const cadastro = {name, email, password, adress};
       console.log(cadastro);
       axios.post(`${import.meta.env.VITE_API_URL}/cadastro`, cadastro)
-            .then(res => navigate('/'))
+            .then(res => navigate('/login'))
             .catch(erro => alert(erro.response.data));
     }
 
