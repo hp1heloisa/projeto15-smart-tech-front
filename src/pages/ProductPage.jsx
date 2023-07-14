@@ -90,7 +90,7 @@ const Product = styled.div`
     height: auto;
     display: flex;
     margin: auto;
-   
+    
 `
 const Image = styled.div`
     width: 460px;
@@ -156,19 +156,19 @@ const Values = styled.div`
     }
 `
 const BuyButton = styled.button`
-  width: 200px;
-  height: 50px;
-  background-color: #f90;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  font-size: 18px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-  display: flex; justify-content: center; align-items: center;
-  &:hover {
+    width: 200px;
+    height: 50px;
+    background-color: #f90;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    display: flex; justify-content: center; align-items: center;
+    &:hover {
     background-color: #e80;
-  }
+    }
 `;
 
 
