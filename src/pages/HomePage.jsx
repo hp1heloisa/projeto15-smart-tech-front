@@ -122,7 +122,7 @@ export default function HomePage() {
 }
 
 const HomePageComponent = styled.div`
-    background-color: #170194;
+    background-color: #ffffff;
     width: auto;
     height: auto;
     display: flex;
