@@ -16,13 +16,17 @@ export default function NavBar() {
         return
     }
 
+    function pesquisar(){
+        console.log(pesquisa);
+    }
+
     return(
         <ContainerGeral>
                 <MenuLateral />
                 <LogoImage onClick={backToHome} src={Logo} alt="Logo-image" />
                 <SearchBar>
                     <input placeholder="Pesquisar produto..." type="text" value={pesquisa} onChange={e => setPesquisa(e.target.value)} required/>
-                    <img src={Lupa} alt="lupa-icon" />
+                    <img src={Lupa} alt="lupa-icon" onClick={pesquisar}/>
                 </SearchBar>
                 <Welcome />
                 <Cart>
