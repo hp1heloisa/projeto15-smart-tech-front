@@ -1,5 +1,6 @@
 import styled from "styled-components"
 import NavBar from "../components/NavBar.jsx"
+import Footer from "../components/Footer.jsx"
 
 
 export default function HomePage() {
@@ -17,6 +18,7 @@ export default function HomePage() {
                         <ProductItem></ProductItem>
                     </ProductsArea>
                 </HomePageComponent>
+                <Footer/>
         </>
     )
 }
