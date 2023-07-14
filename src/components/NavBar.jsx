@@ -1,9 +1,9 @@
 import { useState } from "react";
 import styled from "styled-components";
-import Menu from "../assets/menu.png";
+import barras from "../assets/barras.png";
 import Lupa from "../assets/lupa.png";
 import Logo from "../assets/logo-sem-fundo.png";
-import Carrinho from "../assets/carrinho.png";
+import Carro from "../assets/carro.png";
 import { useNavigate } from "react-router-dom";
 import Welcome from "./Welcome.jsx";
 
@@ -19,14 +19,14 @@ export default function NavBar() {
 
     return(
         <ContainerGeral>
-                <MenuImage src={Menu} alt="menu-button" />
+                <MenuImage src={barras} alt="menu-button" />
                 <LogoImage onClick={backToHome} src={Logo} alt="Logo-image" />
                 <SearchBar>
                     <input placeholder="Pesquisar produto..." type="text" value={pesquisa} onChange={e => setPesquisa(e.target.value)} required/>
                     <img src={Lupa} alt="lupa-icon" />
                 </SearchBar>
                 <Welcome />
-                <Cart src={Carrinho} alt="carrinho-icon"/>
+                <Cart src={Carro} alt="carrinho-icon"/>
         </ContainerGeral>
     )
 }
@@ -50,12 +50,12 @@ const ContainerGeral = styled.div`
         span {
             font-weight: 600;
         }
-  }
+    }
     `
 
 const MenuImage = styled.img`
-        width: 35px;
-        height: 35px;
+        width: 65px;
+        height: 65px;
         cursor: pointer;
     `
 const LogoImage = styled.img`
