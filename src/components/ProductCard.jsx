@@ -3,13 +3,14 @@ import Carro from "../assets/carro.png"
 
 export default function ProductCard(props) {
 
-    const { listProducts } = props;
+    const { product } = props;
+    console.log(product.name)
 
     return (
         <ProductItem>
-            <img src={listProducts.image} alt="product" />
-            <h1>{listProducts.name}</h1>
-            <h2>{listProducts.value}</h2>
+            <img src={product.image} alt="product" />
+            <h1>{product.name}</h1>
+            <h2>{product.value}</h2>
             <ButtonCart>
                 <img src={Carro} alt="carro-icon" />
             </ButtonCart>
@@ -19,7 +20,7 @@ export default function ProductCard(props) {
 
 const ProductItem = styled.div`
     background-color: #ffffff;
-    height: 450px;
+    height: 480px;
     width: 250px;
     padding: 20px;
     border-radius: 15px;

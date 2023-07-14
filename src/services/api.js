@@ -12,11 +12,14 @@ function getProductById(bory){
     return promise;
 }
 
-
+function getProducts(){
+    const promise = axios.get(`${URL}/`);
+    return promise;
+}
 
 
 const api = {
-    getProductById
+    getProductById, getProducts
 };
 
 export default api;

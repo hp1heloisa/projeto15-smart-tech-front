@@ -2,6 +2,9 @@ import styled from "styled-components"
 import NavBar from "../components/NavBar.jsx"
 import Footer from "../components/Footer.jsx"
 import ProductCard from "../components/ProductCard.jsx"
+import { useState } from "react"
+import { useEffect } from "react"
+import api from "../services/api.js"
 
 
 export default function HomePage() {
@@ -14,41 +17,40 @@ export default function HomePage() {
     }
 
 
+    const [products, setProducts] = useState([])
+
     // Requisição da lista de produtos:
 
-    /*     useEffect(() => {
-    
-            if (!token) {
-                navigate('/')
-                alert("Faça o login!")
-                return
+    useEffect(() => {
+/* 
+        if (!token) {
+            navigate('/')
+            alert("Faça o login!")
+            return
+        }
+
+        const config = {
+            headers: {
+                "authorization": `Bearer ${token}`,
             }
-    
-            const config = {
-                headers: {
-                    "authorization": `Bearer ${token}`,
-                }
-            }
-    
-            axios.get(`rota/`, config)
-                .then(res => {
-                    console.log(res.data)
-                })
-                .catch(err => console.log(err.message))
-        }, [token])
-     */
+        }
+ */
+        const promise = api.getProducts();
+        promise.then(res => {
+            setProducts(res.data);
+            console.log(res.data);
+        });
+        promise.catch(err => {
+            console.log(err.response.data)
+        });
+    }, [])
 
     return (
         <>
             <NavBar />
             <HomePageComponent>
                 <ProductsArea>
-                    <ProductCard  listProducts={listProducts}/>
-                    <ProductCard  listProducts={listProducts}/>
-                    <ProductCard  listProducts={listProducts}/>
-                    <ProductCard  listProducts={listProducts}/>
-                    <ProductCard  listProducts={listProducts}/>
-                    <ProductCard  listProducts={listProducts}/>
+                    {products.map((prod) => <ProductCard key={prod._id} product={prod} />)}
                 </ProductsArea>
             </HomePageComponent>
             <Footer />
