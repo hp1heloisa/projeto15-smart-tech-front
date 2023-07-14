@@ -2,7 +2,6 @@ import { useState } from "react";
 import styled from "styled-components";
 import Lupa from "../assets/lupa.png";
 import Logo from "../assets/logo-sem-fundo.png";
-import Carro from "../assets/carro.png";
 import { useNavigate } from "react-router-dom";
 import Welcome from "./Welcome.jsx";
 import MenuLateral from "./MenuLateral";
@@ -73,11 +72,15 @@ const SearchBar = styled.div`
     align-items: center;
     position: relative;
     cursor: pointer;
-    img{
-        width: 40px;
+    input{
         height: 40px;
+        font-size: 15px;
+    }
+    img{
+        width: 20px;
+        height: 20px;
         position: absolute;
-        margin-left: 300px;
+        margin-left: 330px;
     }
 `
 const UserButton = styled.button`

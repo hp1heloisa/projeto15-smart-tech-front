@@ -40,7 +40,7 @@ const Container = styled.div`
     gap: 10px;
 
     font-family: "Poppins";
-    font-size: 11px;
+    font-size: 15px;
     font-weight: 500;
     color: white;
 
