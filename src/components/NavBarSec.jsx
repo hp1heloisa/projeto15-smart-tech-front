@@ -31,6 +31,7 @@ const Container = styled.div`
   img {
     width: 70px;
     height: 70px;
+    cursor: pointer;
   }
 
   .signIn-Out {
