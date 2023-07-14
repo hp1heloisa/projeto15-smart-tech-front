@@ -36,7 +36,8 @@ const Container = styled.div`
   left: 0;
 
   img {
-    height: 45px;
+    width: 70px;
+    height: 70px;
   }
 
   .signIn-Out {

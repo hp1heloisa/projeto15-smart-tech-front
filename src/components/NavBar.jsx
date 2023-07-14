@@ -20,6 +20,33 @@ export default function NavBar() {
         navigate("/cadastro");
     }
 
+    function Welcome() {
+        let data = JSON.parse(localStorage.getItem("dataSmartTech"));
+        if (!data) {
+            return(
+                <div className="signIn-Out" onClick={goSignUp}>
+                    <Profile>
+                        <ion-icon name="person-sharp"></ion-icon>
+                    </Profile>
+                    <p>
+                        Faça <span>LOGIN</span> ou <br />
+                        crie seu <span>CADASTRO</span>
+                    </p>
+                </div>
+            )
+        } else {
+            return(
+                <div className="signIn-Out" onClick={goSignUp}>
+                    <Profile>
+                        <ion-icon name="person-sharp"></ion-icon>
+                    </Profile>
+                    <p>
+                        Bem-vindo(a), <span>{data.name.toUpperCase()}</span>
+                    </p>
+                </div>
+            )
+        }
+    }
 
     return(
         <ContainerGeral>
@@ -29,9 +56,7 @@ export default function NavBar() {
                     <input placeholder="Pesquisar produto..." type="text" value={pesquisa} onChange={e => setPesquisa(e.target.value)} required/>
                     <img src={Lupa} alt="lupa-icon" />
                 </SearchBar>
-                <UserButton onClick={goSignUp}>
-                    Faça o Login ou Cadrastre-se
-                </UserButton>
+                <Welcome />
                 <Cart src={Carrinho} alt="carrinho-icon"/>
         </ContainerGeral>
     )
@@ -39,20 +64,51 @@ export default function NavBar() {
 
 const ContainerGeral = styled.div`
     width: 100%;
-    background-color: #0060b1;
-    height: 90px;
+    height: 78px;
+    border-bottom: 3px solid #ff6500;
+    background: #004d8e;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+    .signIn-Out {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-family: "Poppins";
+        font-size: 11px;
+        font-weight: 500;
+        color: white;
+        span {
+            font-weight: 600;
+        }
+  }
     `
+const Profile = styled.div`
+width: 30px;
+height: 30px;
+border: 2px solid #f3f3f3;
+border-radius: 100%;
+overflow: hidden;
+
+display: flex;
+align-items: center;
+justify-content: center;
+
+ion-icon {
+  width: 15px;
+  height: 15px;
+  color: #f3f3f3;
+}
+`;
+
 const MenuImage = styled.img`
         width: 35px;
         height: 35px;
         cursor: pointer;
     `
 const LogoImage = styled.img`
-    width: 110px;
-    height:110px;
+    width: 70px;
+    height: 70px;
     margin-bottom: 5px;
     cursor: pointer;
     `
