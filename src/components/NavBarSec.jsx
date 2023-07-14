@@ -1,10 +1,13 @@
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import logo from "../assets/logo-sem-fundo.png"
 
 export default function NavbarSec() {
+  const navigate = useNavigate();
+
   return (
     <Container>
-      <img src={logo} alt="logo smart tech" />
+      <img src={logo} alt="logo smart tech" onClick={() => navigate('/')}/>
       <div className="signIn-Out">
         <Profile>
           <ion-icon name="person-sharp"></ion-icon>

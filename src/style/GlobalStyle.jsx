@@ -16,9 +16,8 @@ const GlobalStyle = createGlobalStyle`
         font-weight: 600;
         color: #fff;
         cursor: pointer;
-        width: 100%;
-        padding: 12px;
         width: calc(100% - 30px);
+        padding: 12px;
     }
     h1 {
         font-weight: 700;
@@ -27,11 +26,11 @@ const GlobalStyle = createGlobalStyle`
     }
     input {
         font-size: 20px;
-        width: calc(100% - 30px);
         border-radius: 5px;
         outline: none;
         border: 1px solid #ccc;
         padding: 15px;
+        width: calc(100% - 30px);
         margin: 1px;
         :focus {
             border: 2px solid #ffb6b6;
@@ -51,6 +50,7 @@ const GlobalStyle = createGlobalStyle`
         font-weight: 700;
         font-size: 15px;
         line-height: 18px;
+        color: white;
         padding-top: 10px;
     }
 `

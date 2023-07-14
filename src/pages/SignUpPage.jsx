@@ -37,7 +37,7 @@ export default function SignUpPage() {
         <input placeholder="Senha" type="password" autoComplete="new-password" value={password} onChange={e => setPassword(e.target.value)} required/>
         <input placeholder="Confirme a senha" type="password" autoComplete="new-password" value={confirma} onChange={e => setConfirma(e.target.value)} required/>
         <input placeholder="Endereço" type="text" value={adress} onChange={e => setAdress(e.target.value)} required/>
-        <button type="submit">Cadastrar</button>
+        <button type="submit">CRIAR</button>
       </form>
       <Link to={"/login"} >
         Já tem uma conta? Entre agora!
