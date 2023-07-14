@@ -1,26 +1,22 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import styled from "styled-components"
+import Footer from "../components/Footer";
 import NavBar from "../components/NavBar";
 import api from "../services/api";
 
-const teste = {
-    img: "https://cdn.dooca.store/194/products/sony-ps5_640x640+fill_ffffff.jpg?v=1616039046&webp=0",
-    name: "Console Sony Playstation 5, Edição Digital - 1214B",
-    description: "Desfrute do carregamento do seu PS5, extremamente rápido com o SSD de altíssima velocidade, uma imersão mais profunda com suporte a feedback tátil, gatilhos adaptáveis e áudio 3D, além de uma geração inédita de jogos incríveis para PlayStation.",
-    value: 3599.99,
-    category: "Consoles"
-};
 
 export default function ProductPage() {
-    const { id } = useParams();
+    const { idProduto } = useParams();
 
     const [product, setProduct] = useState({});
 
+    const navigate = useNavigate();
+
     useEffect(() => {
-        const promise = api.getProductById({id});
+        // 64b0b53530626c3593e1566a
+        const promise = api.getProductById({id: idProduto});
         promise.then(res => {
-            console.log(res.data);
             setProduct(res.data);
         });
         promise.catch(err => {
@@ -28,44 +24,51 @@ export default function ProductPage() {
         });
     } , []);
 
+    function home(){
+        navigate("/");
+    }
+    function addCart(){
+        console.log("Adicionar ao carrinho");
+    }
 
     return (
         <>
             <NavBar/>
             <ProductContainer>
-                <h1>{teste.name}</h1>
+                <h1>{product.name}</h1>
                 <Product>
                     <Image>
-                        <img src={teste.img} />
+                        <img src={product.image} />
                     </Image>
                     <Price>
                         <Description>
                             <Subtitle>Descrição:</Subtitle>
-                            {teste.description}
+                            {product.description}
                         </Description>
                         <Values>
-                            <Subtitle>Categoria:</Subtitle><p>{teste.category}</p>
+                            <Subtitle>Categoria:</Subtitle><p>{product.category}</p>
 
                             <Subtitle>Preço:</Subtitle>
                             <div>
-                                <p className="price">R${(teste.value.toFixed(2)).toString().replace(".", ",")}</p>
+                                <p className="price">R${product.value}</p>
                                 <p>{"À vista"}</p>
                             </div>
-                            <p>Ou em até 12x de R${((teste.value/12).toFixed(2)).toString().replace(".", ",")}</p>
+                            <p>Ou em até 12x de R${(product.value/12)}</p>
                         </Values>
                         <Buttons>
-                            <BuyButton>Voltar para produtos</BuyButton>
-                            <BuyButton>Adicionar ao carrinho</BuyButton>
+                            <BuyButton onClick={home}>Voltar para produtos</BuyButton>
+                            <BuyButton onClick={addCart}>Adicionar ao carrinho</BuyButton>
                         </Buttons>
                     </Price>
                 </Product>
             </ProductContainer>
+            <Footer/>
         </>
     )
 }
 
 const ProductContainer = styled.div`
-    margin: 80px auto 0;
+    margin: 50px auto 100px;
     height: 500px;
     width: 1000px;
     padding: 15px;

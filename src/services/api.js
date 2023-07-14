@@ -8,7 +8,7 @@ function createConfig(token){
 }
 
 function getProductById(bory){
-    const promise = axios.get(`${URL}/produtos/${bory.id}`, bory);
+    const promise = axios.get(`${URL}/produtos/${bory.id}`);
     return promise;
 }
 
