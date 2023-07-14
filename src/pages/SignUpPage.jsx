@@ -56,9 +56,15 @@ const SingUpContainer = styled.section`
   h1{
     color: #ff6500; 
     margin-bottom: 15px;
+    font-weight: 700;
+    font-size: 26px;
   }
   a {
     color: #ff6500;
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 18px;
+    padding-top: 10px;
   }
 `
 

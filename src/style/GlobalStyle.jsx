@@ -19,10 +19,6 @@ const GlobalStyle = createGlobalStyle`
         width: calc(100% - 30px);
         padding: 12px;
     }
-    h1 {
-        font-weight: 700;
-        font-size: 26px;
-    }
     input {
         font-size: 20px;
         border-radius: 5px;
@@ -44,12 +40,6 @@ const GlobalStyle = createGlobalStyle`
         gap: 15px;
         width: 100%;
         border-radius: 5px;
-    }
-    a {
-        font-weight: 700;
-        font-size: 15px;
-        line-height: 18px;
-        padding-top: 10px;
     }
 `
 
