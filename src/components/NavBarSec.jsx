@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import logo from "../assets/logo-sem-fundo.png"
+import Welcome from "./Welcome";
 
 export default function NavbarSec() {
   const navigate = useNavigate();
@@ -8,15 +9,7 @@ export default function NavbarSec() {
   return (
     <Container>
       <img src={logo} alt="logo smart tech" onClick={() => navigate('/')}/>
-      <div className="signIn-Out">
-        <Profile>
-          <ion-icon name="person-sharp"></ion-icon>
-        </Profile>
-        <p>
-          Faça <span>LOGIN</span> ou <br />
-          crie seu <span>CADASTRO</span>
-        </p>
-      </div>
+      <Welcome />
     </Container>
   );
 }
