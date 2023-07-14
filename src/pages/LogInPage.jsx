@@ -30,7 +30,7 @@ export default function LogInPage() {
       <form onSubmit={e => singIn(e)}>
         <input placeholder="E-mail" type="email" value={email} onChange={e => setEmail(e.target.value)} required/>
         <input placeholder="Senha" type="password" autoComplete="new-password" value={password} onChange={e => setPassword(e.target.value)} required/>
-        <button type="submit">ENTRAR</button>
+        <button type="submit"><ion-icon name="log-in-outline"></ion-icon> ENTRAR</button>
       </form>
       <Link to={"/cadastro"} >
         Primeira vez? Cadastre-se!
@@ -58,6 +58,15 @@ const SingUpContainer = styled.section`
     font-size: 15px;
     line-height: 18px;
     padding-top: 10px;
+  }
+  button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    ion-icon{
+      font-size: 30px;
+    }
   }
 `
 
