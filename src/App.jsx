@@ -3,7 +3,7 @@ import HomePage from "./pages/HomePage";
 import ProductPage from "./pages/ProductPage";
 import SignUpPage from "./pages/SignUpPage";
 import LogInPage from "./pages/LogInPage";
-import CartPage from "./pages/CartPage";
+import CheckoutPage from "./pages/Checkout/CheckoutPage";
 import styled from "styled-components";
 
 
@@ -17,7 +17,7 @@ export default function App() {
           <Route path="/produtos/:idProduto" element={<ProductPage />} />
           <Route path="/cadastro" element={<SignUpPage />} />
           <Route path="/login" element={<LogInPage />} />
-          <Route path="/carrinho" element={<CartPage />} />
+          <Route path="/check/*" element={<CheckoutPage />} />
         </Routes>
       </BrowserRouter>
     </PagesContainer>
