@@ -6,117 +6,140 @@ import Carro from "../assets/carro.png"
 
 export default function HomePage() {
 
-    const listProducts = 
-        {
-            name: "PlayStation 5 - Slim Limited Edition",
-            image: "https://img.olhardigital.com.br/wp-content/uploads/2021/02/shutterstock_1855958302.jpg",
-            value: "R$ 5000,00"
+    const listProducts =
+    {
+        name: "PlayStation 5 - Slim Limited Edition",
+        image: "https://img.olhardigital.com.br/wp-content/uploads/2021/02/shutterstock_1855958302.jpg",
+        value: "R$ 5000,00"
+    }
+
+
+    // Requisição da lista de produtos:
+
+/*     useEffect(() => {
+
+        if (!token) {
+            navigate('/')
+            alert("Faça o login!")
+            return
         }
 
+        const config = {
+            headers: {
+                "authorization": `Bearer ${token}`,
+            }
+        }
 
+        axios.get(`rota/`, config)
+            .then(res => {
+                console.log(res.data)
+            })
+            .catch(err => console.log(err.message))
+    }, [token])
+ */
 
-    return(
+    return (
         <>
-                <NavBar/>
-                <HomePageComponent>
-                    <ProductsArea>
-                        <ProductItem>
-                            <img src={listProducts.image} alt="product" />
-                            <h1>{listProducts.name}</h1>
-                            <h2>{listProducts.value}</h2>
-                            <ButtonCart>
-                                <img src={Carro} alt="carro-icon" />
-                            </ButtonCart>
-                        </ProductItem>
-                        <ProductItem>
-                            <img src={listProducts.image} alt="product" />
-                            <h1>{listProducts.name}</h1>
-                            <h2>{listProducts.value}</h2>
-                            <ButtonCart>
-                                <img src={Carro} alt="carro-icon" />
-                            </ButtonCart>
-                        </ProductItem>
-                        <ProductItem>
-                            <img src={listProducts.image} alt="product" />
-                            <h1>{listProducts.name}</h1>
-                            <h2>{listProducts.value}</h2>
-                            <ButtonCart>
-                                <img src={Carro} alt="carro-icon" />
-                            </ButtonCart>
-                        </ProductItem>
-                        <ProductItem>
-                            <img src={listProducts.image} alt="product" />
-                            <h1>{listProducts.name}</h1>
-                            <h2>{listProducts.value}</h2>
-                            <ButtonCart>
-                                <img src={Carro} alt="carro-icon" />
-                            </ButtonCart>
-                        </ProductItem>
-                        <ProductItem>
-                            <img src={listProducts.image} alt="product" />
-                            <h1>{listProducts.name}</h1>
-                            <h2>{listProducts.value}</h2>
-                            <ButtonCart>
-                                <img src={Carro} alt="carro-icon" />
-                            </ButtonCart>
-                        </ProductItem>
-                        <ProductItem>
-                            <img src={listProducts.image} alt="product" />
-                            <h1>{listProducts.name}</h1>
-                            <h2>{listProducts.value}</h2>
-                            <ButtonCart>
-                                <img src={Carro} alt="carro-icon" />
-                            </ButtonCart>
-                        </ProductItem>
-                        <ProductItem>
-                            <img src={listProducts.image} alt="product" />
-                            <h1>{listProducts.name}</h1>
-                            <h2>{listProducts.value}</h2>
-                            <ButtonCart>
-                                <img src={Carro} alt="carro-icon" />
-                            </ButtonCart>
-                        </ProductItem>
-                        <ProductItem>
-                            <img src={listProducts.image} alt="product" />
-                            <h1>{listProducts.name}</h1>
-                            <h2>{listProducts.value}</h2>
-                            <ButtonCart>
-                                <img src={Carro} alt="carro-icon" />
-                            </ButtonCart>
-                        </ProductItem>
-                        <ProductItem>
-                            <img src={listProducts.image} alt="product" />
-                            <h1>{listProducts.name}</h1>
-                            <h2>{listProducts.value}</h2>
-                            <ButtonCart>
-                                <img src={Carro} alt="carro-icon" />
-                            </ButtonCart>
-                        </ProductItem>                        <ProductItem>
-                            <img src={listProducts.image} alt="product" />
-                            <h1>{listProducts.name}</h1>
-                            <h2>{listProducts.value}</h2>
-                            <ButtonCart>
-                                <img src={Carro} alt="carro-icon" />
-                            </ButtonCart>
-                        </ProductItem>                        <ProductItem>
-                            <img src={listProducts.image} alt="product" />
-                            <h1>{listProducts.name}</h1>
-                            <h2>{listProducts.value}</h2>
-                            <ButtonCart>
-                                <img src={Carro} alt="carro-icon" />
-                            </ButtonCart>
-                        </ProductItem>
-                        <ProductItem>
-                            <img src={listProducts.image} alt="product" />
-                            <h1>{listProducts.name}</h1>
-                            <h2>{listProducts.value}</h2>
-                            <ButtonCart>
-                                <img src={Carro} alt="carro-icon" />
-                            </ButtonCart>
-                        </ProductItem>
-                    </ProductsArea>
-                </HomePageComponent>
-                <Footer/>
+            <NavBar />
+            <HomePageComponent>
+                <ProductsArea>
+                    <ProductItem>
+                        <img src={listProducts.image} alt="product" />
+                        <h1>{listProducts.name}</h1>
+                        <h2>{listProducts.value}</h2>
+                        <ButtonCart>
+                            <img src={Carro} alt="carro-icon" />
+                        </ButtonCart>
+                    </ProductItem>
+                    <ProductItem>
+                        <img src={listProducts.image} alt="product" />
+                        <h1>{listProducts.name}</h1>
+                        <h2>{listProducts.value}</h2>
+                        <ButtonCart>
+                            <img src={Carro} alt="carro-icon" />
+                        </ButtonCart>
+                    </ProductItem>
+                    <ProductItem>
+                        <img src={listProducts.image} alt="product" />
+                        <h1>{listProducts.name}</h1>
+                        <h2>{listProducts.value}</h2>
+                        <ButtonCart>
+                            <img src={Carro} alt="carro-icon" />
+                        </ButtonCart>
+                    </ProductItem>
+                    <ProductItem>
+                        <img src={listProducts.image} alt="product" />
+                        <h1>{listProducts.name}</h1>
+                        <h2>{listProducts.value}</h2>
+                        <ButtonCart>
+                            <img src={Carro} alt="carro-icon" />
+                        </ButtonCart>
+                    </ProductItem>
+                    <ProductItem>
+                        <img src={listProducts.image} alt="product" />
+                        <h1>{listProducts.name}</h1>
+                        <h2>{listProducts.value}</h2>
+                        <ButtonCart>
+                            <img src={Carro} alt="carro-icon" />
+                        </ButtonCart>
+                    </ProductItem>
+                    <ProductItem>
+                        <img src={listProducts.image} alt="product" />
+                        <h1>{listProducts.name}</h1>
+                        <h2>{listProducts.value}</h2>
+                        <ButtonCart>
+                            <img src={Carro} alt="carro-icon" />
+                        </ButtonCart>
+                    </ProductItem>
+                    <ProductItem>
+                        <img src={listProducts.image} alt="product" />
+                        <h1>{listProducts.name}</h1>
+                        <h2>{listProducts.value}</h2>
+                        <ButtonCart>
+                            <img src={Carro} alt="carro-icon" />
+                        </ButtonCart>
+                    </ProductItem>
+                    <ProductItem>
+                        <img src={listProducts.image} alt="product" />
+                        <h1>{listProducts.name}</h1>
+                        <h2>{listProducts.value}</h2>
+                        <ButtonCart>
+                            <img src={Carro} alt="carro-icon" />
+                        </ButtonCart>
+                    </ProductItem>
+                    <ProductItem>
+                        <img src={listProducts.image} alt="product" />
+                        <h1>{listProducts.name}</h1>
+                        <h2>{listProducts.value}</h2>
+                        <ButtonCart>
+                            <img src={Carro} alt="carro-icon" />
+                        </ButtonCart>
+                    </ProductItem>                        <ProductItem>
+                        <img src={listProducts.image} alt="product" />
+                        <h1>{listProducts.name}</h1>
+                        <h2>{listProducts.value}</h2>
+                        <ButtonCart>
+                            <img src={Carro} alt="carro-icon" />
+                        </ButtonCart>
+                    </ProductItem>                        <ProductItem>
+                        <img src={listProducts.image} alt="product" />
+                        <h1>{listProducts.name}</h1>
+                        <h2>{listProducts.value}</h2>
+                        <ButtonCart>
+                            <img src={Carro} alt="carro-icon" />
+                        </ButtonCart>
+                    </ProductItem>
+                    <ProductItem>
+                        <img src={listProducts.image} alt="product" />
+                        <h1>{listProducts.name}</h1>
+                        <h2>{listProducts.value}</h2>
+                        <ButtonCart>
+                            <img src={Carro} alt="carro-icon" />
+                        </ButtonCart>
+                    </ProductItem>
+                </ProductsArea>
+            </HomePageComponent>
+            <Footer />
         </>
     )
 }
