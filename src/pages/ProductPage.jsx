@@ -1,18 +1,37 @@
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import styled from "styled-components"
 import NavBar from "../components/NavBar";
+import api from "../services/api";
 
 const teste = {
     img: "https://cdn.dooca.store/194/products/sony-ps5_640x640+fill_ffffff.jpg?v=1616039046&webp=0",
     name: "Console Sony Playstation 5, Edição Digital - 1214B",
     description: "Desfrute do carregamento do seu PS5, extremamente rápido com o SSD de altíssima velocidade, uma imersão mais profunda com suporte a feedback tátil, gatilhos adaptáveis e áudio 3D, além de uma geração inédita de jogos incríveis para PlayStation.",
-    value: 3599.99
+    value: 3599.99,
+    category: "Consoles"
 };
 
 export default function ProductPage() {
+    const { id } = useParams();
+
+    const [product, setProduct] = useState({});
+
+    useEffect(() => {
+        const promise = api.getProductById({id});
+        promise.then(res => {
+            console.log(res.data);
+            setProduct(res.data);
+        });
+        promise.catch(err => {
+            console.log(err.response.data);
+        });
+    } , []);
+
 
     return (
         <>
-            <NavBar />
+            <NavBar/>
             <ProductContainer>
                 <h1>{teste.name}</h1>
                 <Product>
@@ -21,13 +40,23 @@ export default function ProductPage() {
                     </Image>
                     <Price>
                         <Description>
-                            <p>Descrição:</p>
+                            <Subtitle>Descrição:</Subtitle>
                             {teste.description}
                         </Description>
-                        <div>
-                            <h3>R${(teste.value.toFixed(2)).toString().replace(".", ",")}</h3>
-                            <BuyButton>Comprar</BuyButton>
-                        </div>
+                        <Values>
+                            <Subtitle>Categoria:</Subtitle><p>{teste.category}</p>
+
+                            <Subtitle>Preço:</Subtitle>
+                            <div>
+                                <p className="price">R${(teste.value.toFixed(2)).toString().replace(".", ",")}</p>
+                                <p>{"À vista"}</p>
+                            </div>
+                            <p>Ou em até 12x de R${((teste.value/12).toFixed(2)).toString().replace(".", ",")}</p>
+                        </Values>
+                        <Buttons>
+                            <BuyButton>Voltar para produtos</BuyButton>
+                            <BuyButton>Adicionar ao carrinho</BuyButton>
+                        </Buttons>
                     </Price>
                 </Product>
             </ProductContainer>
@@ -37,7 +66,7 @@ export default function ProductPage() {
 
 const ProductContainer = styled.div`
     margin: 80px auto 0;
-    height: 530px;
+    height: 500px;
     width: 1000px;
     padding: 15px;
 
@@ -47,7 +76,7 @@ const ProductContainer = styled.div`
     border-radius: 4px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 
-    h1{
+    > h1{
         color: #FFA500;
         font-size: 27px;
         line-height: 34px;
@@ -82,33 +111,52 @@ const Description = styled.div`
     color: black;
     font-size: 14px;
     font-weight: 400;
-
-    p{
-        color: #0060b1;
-        font-size: 20px;
-        font-weight: 700;
-        margin-bottom: 7px;
-    }
+    margin-bottom: 20px
     
 `
+
+const Subtitle = styled.div`
+    color: #0060b1;
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 7px;
+`
+
 const Price = styled.div`
     width: 470px;
     display: flex;
-    justify-content: space-between;
     flex-direction: column;
-
-    h3{
-        color: #0060b1;
-        font-size: 27px;
-        line-height: 34px;
-        font-weight: 700;
-        padding-left: 10px;
+    p{
+        font-size: 14px;
+        font-weight: 400;
+        margin-bottom: 10px
     }
-
 `
+const Buttons = styled.div`
+    display: flex;
+    justify-content: space-between;
+    
+`
+const Values = styled.div`
+    height: 180px;
+    margin-bottom: 20px;
 
+    .price{
+        color: #FFA500;
+        font-size: 27px;
+        font-weight: 700;
+    }
+    div{
+        display: flex;
+        align-items: center;
+        p{
+            font-size: 12px;
+            margin-right: 5px;
+        }
+    }
+`
 const BuyButton = styled.button`
-  width: 150px;
+  width: 200px;
   height: 50px;
   background-color: #f90;
   color: #fff;
@@ -117,7 +165,7 @@ const BuyButton = styled.button`
   font-size: 18px;
   cursor: pointer;
   transition: background-color 0.3s;
-
+  display: flex; justify-content: center; align-items: center;
   &:hover {
     background-color: #e80;
   }
