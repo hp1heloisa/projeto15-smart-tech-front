@@ -22,7 +22,6 @@ const GlobalStyle = createGlobalStyle`
     h1 {
         font-weight: 700;
         font-size: 26px;
-        color: white;
     }
     input {
         font-size: 20px;
@@ -50,7 +49,6 @@ const GlobalStyle = createGlobalStyle`
         font-weight: 700;
         font-size: 15px;
         line-height: 18px;
-        color: white;
         padding-top: 10px;
     }
 `
