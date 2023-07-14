@@ -1,5 +1,6 @@
 import { useState } from "react";
 import styled from "styled-components";
+import Lupa from "../assets/lupa.png";
 import Logo from "../assets/logo-sem-fundo.png";
 import Carro from "../assets/carro.png";
 import { useNavigate } from "react-router-dom";
@@ -16,17 +17,18 @@ export default function NavBar() {
         return
     }
 
-
     return(
         <ContainerGeral>
                 <MenuLateral />
                 <LogoImage onClick={backToHome} src={Logo} alt="Logo-image" />
                 <SearchBar>
                     <input placeholder="Pesquisar produto..." type="text" value={pesquisa} onChange={e => setPesquisa(e.target.value)} required/>
-                    <ion-icon name="search"></ion-icon>
+                    <img src={Lupa} alt="lupa-icon" />
                 </SearchBar>
                 <Welcome />
-                <Cart><ion-icon name="cart"></ion-icon></Cart>
+                <Cart>
+                    <ion-icon name="cart"></ion-icon>
+                </Cart>
         </ContainerGeral>
     )
 }
@@ -44,7 +46,7 @@ const ContainerGeral = styled.div`
         align-items: center;
         gap: 10px;
         font-family: "Poppins";
-        font-size: 15px;
+        font-size: 11px;
         font-weight: 500;
         color: white;
         span {
@@ -53,7 +55,11 @@ const ContainerGeral = styled.div`
     }
     `
 
-
+const MenuImage = styled.img`
+        width: 65px;
+        height: 65px;
+        cursor: pointer;
+    `
 const LogoImage = styled.img`
     width: 70px;
     height: 70px;
@@ -67,17 +73,19 @@ const SearchBar = styled.div`
     align-items: center;
     position: relative;
     cursor: pointer;
-    input{
+    img{
+        width: 40px;
         height: 40px;
-        font-size: 15px;
-    }
-    ion-icon{
-        color: grey;
-        width: 20px;
-        height: 20px;
         position: absolute;
-        margin-left: 330px;
+        margin-left: 300px;
     }
+`
+const UserButton = styled.button`
+    background-color: #5900ff;
+    width: 190px;
+    height: 60px;
+    border-radius: 40px;
+    padding: 2px;
 `
 const Cart = styled.div`
     cursor: pointer;
