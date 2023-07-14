@@ -16,6 +16,10 @@ export default function NavBar() {
         return
     }
 
+    function goSignUp() {
+        navigate("/cadastro");
+    }
+
 
     return(
         <ContainerGeral>
@@ -25,7 +29,7 @@ export default function NavBar() {
                     <input placeholder="Pesquisar produto..." type="text" value={pesquisa} onChange={e => setPesquisa(e.target.value)} required/>
                     <img src={Lupa} alt="lupa-icon" />
                 </SearchBar>
-                <UserButton>
+                <UserButton onClick={goSignUp}>
                     Faça o Login ou Cadrastre-se
                 </UserButton>
                 <Cart src={Carrinho} alt="carrinho-icon"/>

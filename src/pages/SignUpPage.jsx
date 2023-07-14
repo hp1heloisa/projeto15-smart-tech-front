@@ -3,34 +3,45 @@ import styled from "styled-components"
 import axios from "axios"
 import { useState } from "react"
 import NavbarSec from "../components/NavBarSec";
-import Footer from "../components/Footer";
 
 export default function SignUpPage() {
 
-  let [nome, setNome] = useState('');
+  let [name, setName] = useState('');
   let [email, setEmail] = useState('');
-  let [senha, setSenha] = useState('');
+  let [password, setPassword] = useState('');
   let [confirma, setConfirma] = useState('');
-  let [endereco, setEndereco] = useState('');
+  let [adress, setAdress] = useState('');
   const navigate = useNavigate();
 
+  function singUp(e) {
+    e.preventDefault();
+    if (password != confirma){
+      alert('As senhas devem ser iguais!');
+    } else {
+      const cadastro = {name, email, password, adress};
+      console.log(cadastro);
+      axios.post(`${import.meta.env.VITE_API_URL}/cadastro`, cadastro)
+            .then(res => navigate('/'))
+            .catch(erro => alert(erro.response.data));
+    }
+
+  }
 
   return (
     <SingUpContainer>
       <NavbarSec />
       <h1>CRIAR CONTA</h1>
-      <form>
-        <input placeholder="Nome" type="text" value={nome} onChange={e => setNome(e.target.value)} required/>
+      <form onSubmit={e => singUp(e)}>
+        <input placeholder="Nome" type="text" value={name} onChange={e => setName(e.target.value)} required/>
         <input placeholder="E-mail" type="email" value={email} onChange={e => setEmail(e.target.value)} required/>
-        <input placeholder="Senha" type="password" autoComplete="new-password" value={senha} onChange={e => setSenha(e.target.value)} required/>
+        <input placeholder="Senha" type="password" autoComplete="new-password" value={password} onChange={e => setPassword(e.target.value)} required/>
         <input placeholder="Confirme a senha" type="password" autoComplete="new-password" value={confirma} onChange={e => setConfirma(e.target.value)} required/>
-        <input placeholder="Endereço" type="text" value={endereco} onChange={e => setEndereco(e.target.value)} required/>
+        <input placeholder="Endereço" type="text" value={adress} onChange={e => setAdress(e.target.value)} required/>
         <button type="submit">Cadastrar</button>
       </form>
-      <Link to={"/"} >
+      <Link to={"/login"} >
         Já tem uma conta? Entre agora!
       </Link>
-      <Footer />
     </SingUpContainer>
   )
 }
@@ -42,10 +53,12 @@ const SingUpContainer = styled.section`
   justify-content: center;
   align-items: center;
   padding-top: 100px;
-  padding-bottom: 72px;
   h1{
-    font-size: 100px;
-    color: orange;
+    color: #ff6500; 
+    margin-bottom: 15px;
+  }
+  a {
+    color: #ff6500;
   }
 `
 

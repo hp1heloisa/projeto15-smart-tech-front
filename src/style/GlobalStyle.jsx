@@ -18,6 +18,7 @@ const GlobalStyle = createGlobalStyle`
         cursor: pointer;
         width: 100%;
         padding: 12px;
+        width: calc(100% - 30px);
     }
     h1 {
         font-weight: 700;
@@ -50,8 +51,6 @@ const GlobalStyle = createGlobalStyle`
         font-weight: 700;
         font-size: 15px;
         line-height: 18px;
-        color: white;
-        text-decoration: none;
         padding-top: 10px;
     }
 `
