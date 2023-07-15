@@ -14,7 +14,6 @@ export default function ProductPage() {
     const navigate = useNavigate();
 
     useEffect(() => {
-        // 64b0b53530626c3593e1566a
         const promise = api.getProductById({id: idProduto});
         promise.then(res => {
             setProduct(res.data);
@@ -53,7 +52,7 @@ export default function ProductPage() {
                                 <p className="price">R${product.value}</p>
                                 <p>{"À vista"}</p>
                             </div>
-                            <p>Ou em até 12x de R${(product.value/12)}</p>
+                            <p>Ou em até 12x de R${(product.value/12).toFixed(2)}</p>
                         </Values>
                         <Buttons>
                             <BuyButton onClick={home}>Voltar para produtos</BuyButton>
@@ -105,7 +104,8 @@ const Image = styled.div`
     margin-right: 10px;
 
     img{
-        height: 100%;
+        width: 100%;
+        height: auto;  
         object-fit: cover;
     }
 `

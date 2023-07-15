@@ -1,17 +1,26 @@
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import Carro from "../assets/carro.png"
 
 export default function ProductCard(props) {
 
     const { product } = props;
-    console.log(product.name)
+    const navigate = useNavigate();
+
+    function toProduct (){
+        navigate(`/produtos/${product._id}`);
+    }
+    function addCart(e){
+        e.stopPropagation();
+
+    }
 
     return (
-        <ProductItem>
+        <ProductItem onClick={toProduct}>
             <img src={product.image} alt="product" />
             <h1>{product.name}</h1>
             <h2>{product.value}</h2>
-            <ButtonCart>
+            <ButtonCart onClick={addCart}>
                 <img src={Carro} alt="carro-icon" />
             </ButtonCart>
         </ProductItem>
