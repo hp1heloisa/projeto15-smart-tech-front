@@ -69,7 +69,7 @@ const HomePageComponent = styled.div`
     `
 const ProductsArea = styled.div`
     background-color: #e4e4e4;
-    width: 1800px;
+    width: 100%;
     height: auto;
     margin-top: 120px;
     margin-bottom: 120px;
