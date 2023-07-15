@@ -43,6 +43,12 @@ export default function MenuLateral() {
                                 <ion-icon name="cube"></ion-icon>
                                 <p>Categorias</p>
                             </div>
+                            <div className="categorias">
+                                    <div><ion-icon name="caret-forward-sharp"></ion-icon> Console</div>
+                                    <div><ion-icon name="caret-forward-sharp"></ion-icon> Fone</div>
+                                    <div><ion-icon name="caret-forward-sharp"></ion-icon> Celular</div>
+                                    <div><ion-icon name="caret-forward-sharp"></ion-icon> Cadeira Gamer</div>
+                            </div>
                             <div>
                                 <ion-icon name="cart"></ion-icon>
                                 <p>Carrinho</p>
@@ -119,6 +125,23 @@ const DivMenu = styled.div`
             }
             cursor: pointer;
         }
+        .categorias{
+            display: flex;
+            flex-direction: column;
+            align-items: start;
+            padding-left: 40px;
+            gap: 5px;
+            div{
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                gap: 5px;
+                ion-icon{
+                    font-size: 20px;
+                }
+            }
+        }
+
     }
     button {
         width: calc(100% - 70px);
