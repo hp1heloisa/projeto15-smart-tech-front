@@ -20,22 +20,23 @@ export default function ProductCard(props) {
 
 const ProductItem = styled.div`
     background-color: #ffffff;
-    height: 480px;
-    width: 250px;
+    height: 500px;
+    width: 300px;
     padding: 20px;
+    padding-left: 30px;
     border-radius: 15px;
     box-shadow: 3px 5px 5px #a7a7a7;
     display: flex;
     flex-direction: column;position: relative;
     img{
-        width: 210px;
-        height: 210px;
+        width: 200px;
+        height: 250px;
         margin-bottom: 20px;
         border-radius: 15px;
         align-items: center;
     }h1{
         font-family: "Poppins";
-        font-size: 20px;
+        font-size: 18px;
         font-weight: 500;
         font-weight: bold;
         letter-spacing: 2px;
@@ -48,12 +49,12 @@ const ProductItem = styled.div`
         font-weight: bold;
         margin-bottom: 24px;
         position: absolute;
-        bottom:73px;
+        bottom:80px;
     }
 `
 const ButtonCart = styled.button`
     background-color: #fda42f;
-    width: 210px;
+    width: 238px;
     height: 55px;
     display: flex;
     justify-content: center;
