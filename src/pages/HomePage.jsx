@@ -70,11 +70,13 @@ const HomePageComponent = styled.div`
 const ProductsArea = styled.div`
     background-color: #e4e4e4;
     width: 100%;
-    height: auto;
+    height: 100%;
     margin-top: 120px;
     margin-bottom: 120px;
-    padding: 45px;
-    gap: 40px;
+    padding-top: 70px;  
+    padding-bottom: 70px;
+    gap: 70px;
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
 `

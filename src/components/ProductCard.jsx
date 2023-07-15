@@ -25,6 +25,8 @@ const ProductItem = styled.div`
     padding: 20px;
     border-radius: 15px;
     box-shadow: 3px 5px 5px #a7a7a7;
+    display: flex;
+    flex-direction: column;position: relative;
     img{
         width: 210px;
         height: 210px;
@@ -44,7 +46,9 @@ const ProductItem = styled.div`
         font-size: 20px;
         color: #757373;
         font-weight: bold;
-        margin-bottom: 20px;
+        margin-bottom: 24px;
+        position: absolute;
+        bottom:73px;
     }
 `
 const ButtonCart = styled.button`
@@ -54,6 +58,8 @@ const ButtonCart = styled.button`
     display: flex;
     justify-content: center;
     align-items:center;
+    position: absolute;
+    bottom:25px;
     img{
         margin-top: 20px;
         width: 60px;
