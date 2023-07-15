@@ -18,6 +18,9 @@ const GlobalStyle = createGlobalStyle`
         cursor: pointer;
         width: calc(100% - 30px);
         padding: 12px;
+        :hover{
+            box-shadow: 1px 5px 10px grey;
+        }
     }
     input {
         font-size: 20px;

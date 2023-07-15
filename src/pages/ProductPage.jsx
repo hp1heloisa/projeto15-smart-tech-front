@@ -1,3 +1,4 @@
+import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import styled from "styled-components"
@@ -10,10 +11,12 @@ export default function ProductPage() {
     const { idProduto } = useParams();
 
     const [product, setProduct] = useState({});
+    const [data, setData] = useState('');
 
     const navigate = useNavigate();
 
     useEffect(() => {
+        setData(JSON.parse(localStorage.getItem("dataSmartTech")));
         const promise = api.getProductById({id: idProduto});
         promise.then(res => {
             setProduct(res.data);
@@ -28,6 +31,9 @@ export default function ProductPage() {
     }
     function addCart(){
         console.log("Adicionar ao carrinho");
+        axios.put(`${import.meta.env.VITE_API_URL}/addproduto`, {idProduct: idProduto},  {headers: {Authorization: `Bearer ${data.token}`}})
+             .then(res => alert('Produto adicionado ao carrinho!'))
+             .catch(err => alert(err.response.data));
     }
 
     return (

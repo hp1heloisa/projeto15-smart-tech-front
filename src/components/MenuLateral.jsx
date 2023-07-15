@@ -129,6 +129,9 @@ const DivMenu = styled.div`
         justify-content: center;
         font-weight: 600;
         background-color: #ED8811;
+        :hover{
+            box-shadow: 1px 2px 10px #353534;
+        }
     }
     .signIn-Out {
         font-size: 15px;

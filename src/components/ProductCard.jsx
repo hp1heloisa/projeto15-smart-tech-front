@@ -1,6 +1,6 @@
+import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import Carro from "../assets/carro.png"
 
 export default function ProductCard(props) {
 
@@ -12,7 +12,11 @@ export default function ProductCard(props) {
     }
     function addCart(e){
         e.stopPropagation();
-
+        const data = JSON.parse(localStorage.getItem("dataSmartTech"));
+        console.log("Adicionar ao carrinho");
+        axios.put(`${import.meta.env.VITE_API_URL}/addproduto`, {idProduct: product._id},  {headers: {Authorization: `Bearer ${data.token}`}})
+             .then(res => alert('Produto adicionado ao carrinho!'))
+             .catch(err => alert(err.response.data));
     }
 
     return (
@@ -21,7 +25,7 @@ export default function ProductCard(props) {
             <h1>{product.name}</h1>
             <h2>{product.value}</h2>
             <ButtonCart onClick={addCart}>
-                <img src={Carro} alt="carro-icon" />
+                <ion-icon name="cart"></ion-icon>
             </ButtonCart>
         </ProductItem>
     )
@@ -36,7 +40,9 @@ const ProductItem = styled.div`
     border-radius: 15px;
     box-shadow: 3px 5px 5px #a7a7a7;
     display: flex;
-    flex-direction: column;position: relative;
+    flex-direction: column;
+    position: relative;
+    cursor: pointer;
     img{
         width: 200px;
         height: 250px;
@@ -51,6 +57,9 @@ const ProductItem = styled.div`
         letter-spacing: 2px;
         color: #ff9100;
         margin-bottom: 20px;
+        :hover{
+            text-decoration: underline;
+        }
     }h2{
         letter-spacing: 2px;
         font-size: 20px;
@@ -59,6 +68,9 @@ const ProductItem = styled.div`
         margin-bottom: 24px;
         position: absolute;
         bottom:80px;
+        :hover{
+            text-decoration: underline;
+        }
     }
 `
 const ButtonCart = styled.button`
@@ -70,8 +82,7 @@ const ButtonCart = styled.button`
     align-items:center;
     position: absolute;
     bottom:25px;
-    img{
-        margin-top: 20px;
+    ion-icon{
         width: 60px;
         height: 60px;
     }
