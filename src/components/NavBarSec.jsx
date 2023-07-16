@@ -43,7 +43,7 @@ const Container = styled.div`
     font-size: 15px;
     font-weight: 500;
     color: white;
-
+    cursor: pointer;
     span {
       font-weight: 600;
     }
