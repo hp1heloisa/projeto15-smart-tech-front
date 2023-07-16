@@ -16,5 +16,5 @@ const Container = styled.div`
   color: #f3f3f3;
   position: fixed;
   bottom: 0;
-  left;
+  left: 0;
 `;

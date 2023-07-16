@@ -7,6 +7,11 @@ const GlobalStyle = createGlobalStyle`
         font-weight: 400;
         box-sizing: border-box;
     }
+
+    html, body {
+        background-color: #f2f3f4;
+    }
+    
     button {
         outline: none;
         border: none;

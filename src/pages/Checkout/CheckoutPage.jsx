@@ -1,12 +1,23 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useNavigate, useLocation } from "react-router-dom";
 
 import Footer from '../../components/Footer'
 import NavBarSec from '../../components/NavBarSec'
 import { Container } from './CheckoutrPage.style'
 import CartPage from '../CartPage'
+import PaymentPage from "../PaymentPage";
+import { useEffect } from "react";
 
 
 export default function CheckoutPage() {
+
+   const navigate = useNavigate()
+   const location = useLocation()
+
+   useEffect(() => {
+      if(location.pathname === '/check' || location.pathname === '/check/')
+         navigate('/check/carrinho')
+   }, [])
+
    const products = [
       {
          _id: '12345',
@@ -68,6 +79,7 @@ export default function CheckoutPage() {
          <NavBarSec />
          <Routes>
             <Route path="/carrinho" element={<CartPage products={products} />}></Route>
+            <Route path="/pagamento" element={<PaymentPage />}></Route>
          </Routes>
 
          <Footer />

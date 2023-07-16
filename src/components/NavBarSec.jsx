@@ -25,6 +25,7 @@ const Container = styled.div`
   align-items: center;
   justify-content: space-between;
   position: fixed;
+  z-index: 100;
   top: 0;
   left: 0;
 
@@ -40,9 +41,9 @@ const Container = styled.div`
     gap: 10px;
 
     font-family: "Poppins";
-    font-size: 15px;
+    font-size: 12px;
     font-weight: 500;
-    color: white;
+    color: #f3f3f3;
 
     span {
       font-weight: 600;
@@ -50,20 +51,3 @@ const Container = styled.div`
   }
 `;
 
-const Profile = styled.div`
-  width: 30px;
-  height: 30px;
-  border: 2px solid #f3f3f3;
-  border-radius: 100%;
-  overflow: hidden;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  ion-icon {
-    width: 15px;
-    height: 15px;
-    color: #f3f3f3;
-  }
-`;
