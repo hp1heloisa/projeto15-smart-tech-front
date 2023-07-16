@@ -5,7 +5,9 @@ import Logo from "../assets/logo-sem-fundo.png";
 import { useNavigate } from "react-router-dom";
 
 export default function MenuLateral() {
+    const [menu, setMenu] = useState(false);
     let [data, setData] = useState('')
+    let [estado, setEstado] = useState(true);
     const navigate = useNavigate();
 
 
@@ -31,15 +33,22 @@ export default function MenuLateral() {
         }
     }
 
-    const [menu, setMenu] = useState(false);
+    function changeState(){
+        if (estado){
+            setEstado(false);
+        } else{
+            setEstado(true);
+        }
+    }
+
     if (menu){
         return(
             <StyledMenu>
-                <DivMenu>
+                <DivMenu estado={estado}>
                     <LogoImage src={Logo} alt="Logo-image" />
                     <div>
                         <Welcome />
-                            <div>
+                            <div onClick={changeState}> 
                                 <ion-icon name="cube"></ion-icon>
                                 <p>Categorias</p>
                             </div>
@@ -126,7 +135,7 @@ const DivMenu = styled.div`
             cursor: pointer;
         }
         .categorias{
-            display: flex;
+            display: ${({estado})=> (estado) ? 'none' : 'flex'};
             flex-direction: column;
             align-items: start;
             padding-left: 40px;
