@@ -41,6 +41,12 @@ export default function MenuLateral() {
         }
     }
 
+    function goCategory(category) {
+        showMenu();
+        navigate(category);
+        window.location.reload();
+    }
+
     if (menu){
         return(
             <StyledMenu>
@@ -53,10 +59,10 @@ export default function MenuLateral() {
                                 <p>Categorias</p>
                             </div>
                             <div className="categorias">
-                                    <div><ion-icon name="caret-forward-sharp"></ion-icon> Console</div>
-                                    <div><ion-icon name="caret-forward-sharp"></ion-icon> Fone</div>
-                                    <div><ion-icon name="caret-forward-sharp"></ion-icon> Celular</div>
-                                    <div><ion-icon name="caret-forward-sharp"></ion-icon> Cadeira Gamer</div>
+                                    <div onClick={() => goCategory('/category/Consoles')}><ion-icon name="caret-forward-sharp"></ion-icon> Console</div>
+                                    <div onClick={() => goCategory('/category/Fones')}><ion-icon name="caret-forward-sharp"></ion-icon> Fone</div>
+                                    <div onClick={() => goCategory('/category/Celulares')}><ion-icon name="caret-forward-sharp"></ion-icon> Celular</div>
+                                    <div onClick={() => goCategory('/category/Cadeiras-Gamer')}><ion-icon name="caret-forward-sharp"></ion-icon> Cadeira Gamer</div>
                             </div>
                             <div>
                                 <ion-icon name="cart"></ion-icon>
@@ -133,6 +139,9 @@ const DivMenu = styled.div`
                 font-size: 30px;
             }
             cursor: pointer;
+            :hover{
+                    text-decoration: underline;
+                }
         }
         .categorias{
             display: ${({estado})=> (estado) ? 'none' : 'flex'};
@@ -140,6 +149,9 @@ const DivMenu = styled.div`
             align-items: start;
             padding-left: 40px;
             gap: 5px;
+            :hover{
+                    text-decoration: none;
+                }
             div{
                 display: flex;
                 flex-direction: row;
@@ -147,6 +159,9 @@ const DivMenu = styled.div`
                 gap: 5px;
                 ion-icon{
                     font-size: 20px;
+                }
+                :hover{
+                    text-decoration: underline;
                 }
             }
         }

@@ -5,6 +5,7 @@ import SignUpPage from "./pages/SignUpPage";
 import LogInPage from "./pages/LogInPage";
 import CheckoutPage from "./pages/Checkout/CheckoutPage";
 import styled from "styled-components";
+import CategoryPage from "./pages/CategoryPage";
 
 
 export default function App() {
@@ -15,6 +16,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<HomePage/>} />
           <Route path="/produtos/:idProduto" element={<ProductPage />} />
+          <Route path="/category/:category" element={<CategoryPage />} />
           <Route path="/cadastro" element={<SignUpPage />} />
           <Route path="/login" element={<LogInPage />} />
           <Route path="/check/*" element={<CheckoutPage />} />
