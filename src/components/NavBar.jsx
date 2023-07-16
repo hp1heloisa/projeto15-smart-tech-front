@@ -55,6 +55,7 @@ const ContainerGeral = styled.div`
         span {
             font-weight: 600;
         }
+        cursor: pointer;
     }
     `
 

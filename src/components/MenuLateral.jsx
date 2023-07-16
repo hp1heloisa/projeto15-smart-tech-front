@@ -5,7 +5,9 @@ import Logo from "../assets/logo-sem-fundo.png";
 import { useNavigate } from "react-router-dom";
 
 export default function MenuLateral() {
+    const [menu, setMenu] = useState(false);
     let [data, setData] = useState('')
+    let [estado, setEstado] = useState(true);
     const navigate = useNavigate();
 
 
@@ -31,17 +33,36 @@ export default function MenuLateral() {
         }
     }
 
-    const [menu, setMenu] = useState(false);
+    function changeState(){
+        if (estado){
+            setEstado(false);
+        } else{
+            setEstado(true);
+        }
+    }
+
+    function goCategory(category) {
+        showMenu();
+        navigate(category);
+        window.location.reload();
+    }
+
     if (menu){
         return(
             <StyledMenu>
-                <DivMenu>
+                <DivMenu estado={estado}>
                     <LogoImage src={Logo} alt="Logo-image" />
                     <div>
                         <Welcome />
-                            <div>
+                            <div onClick={changeState}> 
                                 <ion-icon name="cube"></ion-icon>
                                 <p>Categorias</p>
+                            </div>
+                            <div className="categorias">
+                                    <div onClick={() => goCategory('/category/Consoles')}><ion-icon name="caret-forward-sharp"></ion-icon> Console</div>
+                                    <div onClick={() => goCategory('/category/Fones')}><ion-icon name="caret-forward-sharp"></ion-icon> Fone</div>
+                                    <div onClick={() => goCategory('/category/Celulares')}><ion-icon name="caret-forward-sharp"></ion-icon> Celular</div>
+                                    <div onClick={() => goCategory('/category/Cadeiras-Gamer')}><ion-icon name="caret-forward-sharp"></ion-icon> Cadeira Gamer</div>
                             </div>
                             <div>
                                 <ion-icon name="cart"></ion-icon>
@@ -118,7 +139,33 @@ const DivMenu = styled.div`
                 font-size: 30px;
             }
             cursor: pointer;
+            :hover{
+                    text-decoration: underline;
+                }
         }
+        .categorias{
+            display: ${({estado})=> (estado) ? 'none' : 'flex'};
+            flex-direction: column;
+            align-items: start;
+            padding-left: 40px;
+            gap: 5px;
+            :hover{
+                    text-decoration: none;
+                }
+            div{
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                gap: 5px;
+                ion-icon{
+                    font-size: 20px;
+                }
+                :hover{
+                    text-decoration: underline;
+                }
+            }
+        }
+
     }
     button {
         width: calc(100% - 70px);
@@ -129,6 +176,9 @@ const DivMenu = styled.div`
         justify-content: center;
         font-weight: 600;
         background-color: #ED8811;
+        :hover{
+            box-shadow: 1px 2px 10px #353534;
+        }
     }
     .signIn-Out {
         font-size: 15px;

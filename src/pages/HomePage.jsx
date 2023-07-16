@@ -53,7 +53,7 @@ export default function HomePage() {
             <HomePageComponent>
                 <BannerImage src={Banner} alt="banner-img"/>
                 <ProductsArea>
-                    {products.map((prod) => <ProductCard key={prod._id} product={prod} />)}
+                    {products.map((prod) => <ProductCard key={prod._id} product={prod}/>)}
                 </ProductsArea>
             </HomePageComponent>
             <Footer />
@@ -72,14 +72,15 @@ const HomePageComponent = styled.div`
     `
 
     const BannerImage = styled.img`
-        width: auto;
-        height: auto;
+        width: 100%;
+        height: 100%;
     `
 
 const ProductsArea = styled.div`
     background-color: #e4e4e4;
     width: 100%;
-    height: 100%;
+    height: auto;
+    margin-top: 120px;
     margin-bottom: 120px;
     padding-top: 70px;  
     padding-bottom: 70px;

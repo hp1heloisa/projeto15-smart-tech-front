@@ -45,6 +45,8 @@ const Container = styled.div`
     font-weight: 500;
     color: #f3f3f3;
 
+    color: white;
+    cursor: pointer;
     span {
       font-weight: 600;
     }

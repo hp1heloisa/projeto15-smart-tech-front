@@ -1,3 +1,4 @@
+import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import styled from "styled-components"
@@ -10,11 +11,12 @@ export default function ProductPage() {
     const { idProduto } = useParams();
 
     const [product, setProduct] = useState({});
+    const [data, setData] = useState('');
 
     const navigate = useNavigate();
 
     useEffect(() => {
-        // 64b0b53530626c3593e1566a
+        setData(JSON.parse(localStorage.getItem("dataSmartTech")));
         const promise = api.getProductById({id: idProduto});
         promise.then(res => {
             setProduct(res.data);
@@ -29,6 +31,9 @@ export default function ProductPage() {
     }
     function addCart(){
         console.log("Adicionar ao carrinho");
+        axios.put(`${import.meta.env.VITE_API_URL}/addproduto`, {idProduct: idProduto},  {headers: {Authorization: `Bearer ${data.token}`}})
+             .then(res => alert('Produto adicionado ao carrinho!'))
+             .catch(err => alert(err.response.data));
     }
 
     return (
@@ -53,7 +58,7 @@ export default function ProductPage() {
                                 <p className="price">R${product.value}</p>
                                 <p>{"À vista"}</p>
                             </div>
-                            <p>Ou em até 12x de R${(product.value/12)}</p>
+                            <p>Ou em até 12x de R${(product.value/12).toFixed(2)}</p>
                         </Values>
                         <Buttons>
                             <BuyButton onClick={home}>Voltar para produtos</BuyButton>
@@ -105,7 +110,8 @@ const Image = styled.div`
     margin-right: 10px;
 
     img{
-        height: 100%;
+        width: 100%;
+        height: auto;  
         object-fit: cover;
     }
 `
