@@ -3,6 +3,7 @@ import styled from "styled-components";
 import Welcome from "./Welcome";
 import Logo from "../assets/logo-sem-fundo.png";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 export default function MenuLateral() {
     const [menu, setMenu] = useState(false);
@@ -26,8 +27,14 @@ export default function MenuLateral() {
 
     function clickButton() {
         if (data){
-            localStorage.removeItem('dataSmartTech')
-            window.location.reload();
+            localStorage.removeItem('dataSmartTech');
+            console.log(data)
+            axios.delete(`${import.meta.env.VITE_API_URL}/logout`, {headers: {Authorization: `Bearer ${data.token}`}})
+                 .then(res => {
+                    alert('Até a próxima!');
+                    window.location.reload();
+                })
+                 .catch(err => alert(err.response.data));
         } else{
             navigate('/login')
         }
