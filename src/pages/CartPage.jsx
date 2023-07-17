@@ -75,7 +75,7 @@ export default function CartPage() {
                         </div>
                      </div>
                   </LeftContainer>
-                  <ResumeCart products={products}/>
+                  <ResumeCart products={products} setTotal={setTotal}/>
                </MainContainer>
             </CartWithProducts>
          )}

@@ -7,6 +7,7 @@ import CartPage from '../CartPage'
 import PaymentPage from "../PaymentPage";
 import { useEffect } from "react";
 import ConclusionPage from "../ConclusionPage";
+import { useState } from "react";
 
 
 export default function CheckoutPage() {
@@ -19,13 +20,17 @@ export default function CheckoutPage() {
          navigate('/check/carrinho')
    }, []);
 
+   const [total, setTotal] = useState();
+   const [metodo, setMetodo] = useState();
+   const [order, setOrder] = useState();
+
    return (
       <Container>
          <NavBarSec />
          <Routes>
-            <Route path="/carrinho" element={<CartPage />}></Route>
-            <Route path="/pagamento" element={<PaymentPage />}></Route>
-            <Route path="/concluido" element={<ConclusionPage />}></Route>
+            <Route path="/carrinho" element={<CartPage total={total} setTotal={setTotal} />}></Route>
+            <Route path="/pagamento" element={<PaymentPage total={total} metodo={metodo} setMetodo={setMetodo} setOrder={setOrder}/>}></Route>
+            <Route path="/concluido" element={<ConclusionPage order={order} />}></Route>
          </Routes>
 
          <Footer />

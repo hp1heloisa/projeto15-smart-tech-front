@@ -1,8 +1,20 @@
-import CartStages from "../components/CartStages"
+import styled from "styled-components";
+import NotePayment from "../components/NotePayment";
 
-export default function ConclusionPage() {
+export default function ConclusionPage(props) {
+  const {order} = props;
+
   return (<>
+    <StyledDiv>
+      <NotePayment order={order} />
+    </StyledDiv>
 
-    <CartStages />
   </>)
 }
+
+
+const StyledDiv = styled.div`
+  width: auto;
+  height: auto;
+  margin-top: 150px;
+`
