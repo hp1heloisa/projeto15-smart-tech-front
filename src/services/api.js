@@ -17,9 +17,15 @@ function getProducts(){
     return promise;
 }
 
+function conclude(body, token){
+    const config = createConfig(token)
+    const promise = axios.post(`${URL}/pagamento`, body, config);
+    return promise;
+}
+
 
 const api = {
-    getProductById, getProducts
+    getProductById, getProducts, conclude
 };
 
 export default api;
