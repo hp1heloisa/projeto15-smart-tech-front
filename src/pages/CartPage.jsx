@@ -71,7 +71,7 @@ export default function CartPage() {
                            </button>
                         </span>
                         <div className="produtos">
-                           {products.map(product => <ProductInCart product={product} />)}
+                           {products.map(product => <ProductInCart product={product[0]} quantidade={product[1]}/>)}
                         </div>
                      </div>
                   </LeftContainer>
