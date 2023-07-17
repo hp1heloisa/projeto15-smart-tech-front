@@ -14,8 +14,9 @@ export default function PaymentPage(props) {
 
   function concludeOrder(){
     const data = JSON.parse(localStorage.getItem("dataSmartTech"));
-    console.log(data.token);
+
     const body = {value: total, method: metodo} 
+    
     const promise = api.conclude(body, data.token)
     promise.then(res => {
       setOrder(res.data);

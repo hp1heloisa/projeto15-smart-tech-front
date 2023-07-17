@@ -1,10 +1,12 @@
 import styled from "styled-components";
 import NotePayment from "../components/NotePayment";
 
-export default function ConclusionPage() {
+export default function ConclusionPage(props) {
+  const {order} = props;
+
   return (<>
     <StyledDiv>
-      <NotePayment />
+      <NotePayment order={order} />
     </StyledDiv>
 
   </>)

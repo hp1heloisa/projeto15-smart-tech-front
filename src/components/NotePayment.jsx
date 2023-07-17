@@ -1,6 +1,8 @@
 import styled from "styled-components"
 
-export default function NotePayment() {
+export default function NotePayment({order}) {
+    console.log(order);
+    
     return (
         <Container>
             <div className="ContainerRight">

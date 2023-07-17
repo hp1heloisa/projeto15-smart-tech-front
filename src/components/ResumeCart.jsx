@@ -1,6 +1,6 @@
 import styled from "styled-components"
 
-export default function ResumeCart() {
+export default function ResumeCart({setTotal}) {
    return (
       <Container>
          <div className="ContainerRight">
