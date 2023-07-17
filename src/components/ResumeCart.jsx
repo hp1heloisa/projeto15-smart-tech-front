@@ -22,7 +22,7 @@ export default function ResumeCart({setTotal, products}) {
 
             <div id="valorProdutos">
                <p>
-                  Valor dos Produtos: <span>R$ {total}</span>
+                  Valor dos Produtos: <span>R$ {total.toFixed(2)}</span>
                </p>
                <hr />
             </div>
@@ -32,7 +32,7 @@ export default function ResumeCart({setTotal, products}) {
                   Frete: <span>R$ 0,00</span>
                </p>
                <p>
-                  Total à prazo: <span>R$ {total}</span>
+                  Total à prazo: <span>R$ {total.toFixed(2)}</span>
                </p>
             </div>
 
