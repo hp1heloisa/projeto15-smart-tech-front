@@ -1,6 +1,16 @@
-import styled from "styled-components"
+import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
 
-export default function ResumeCart() {
+export default function ResumeCart({products}) {
+
+   const navigate = useNavigate();
+
+   let total = 0;
+   products.forEach(product => {
+      total += product[0].value*product[1];
+   })
+
+
    return (
       <Container>
          <div className="ContainerRight">
@@ -11,7 +21,7 @@ export default function ResumeCart() {
 
             <div id="valorProdutos">
                <p>
-                  Valor dos Produtos: <span>R$ 10.105,92</span>
+                  Valor dos Produtos: <span>R$ {total}</span>
                </p>
                <hr />
             </div>
@@ -21,21 +31,21 @@ export default function ResumeCart() {
                   Frete: <span>R$ 0,00</span>
                </p>
                <p>
-                  Total à prazo: <span>R$ 10.105,92</span>
+                  Total à prazo: <span>R$ {total}</span>
                </p>
             </div>
 
             <div id="valorNoPix">
                <p>Valor à vista no Pix:</p>
                <div>
-                  <span>R$ 8.934,97</span>
-                  <p>(Economize: R$ 1.170,55)</p>
+                  <span>R$ {(total*0.9).toFixed(2)}</span>
+                  <p>(Economize: R$ {(total-(total*0.9)).toFixed(2)})</p>
                </div>
             </div>
 
             <div id="botoes">
-               <button>IR PARA PAGAMENTO</button>
-               <button>CONTINUAR COMPRANDO</button>
+               <button onClick={() => navigate('/check/pagamento')}>IR PARA PAGAMENTO</button>
+               <button onClick={() => navigate('/')}>CONTINUAR COMPRANDO</button>
             </div>
          </div>
       </Container>

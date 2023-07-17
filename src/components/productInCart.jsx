@@ -1,8 +1,10 @@
 import axios from 'axios';
+import { useState } from 'react';
 import styled from 'styled-components'
 
 export default function ProductInCart({ product, quantidade }) {
    console.log(product);
+   let [quant, setQuant] = useState(quantidade);
 
    function deletaProdutos(){
       const data = JSON.parse(localStorage.getItem("dataSmartTech"));
@@ -12,6 +14,19 @@ export default function ProductInCart({ product, quantidade }) {
               .then(res => window.location.reload())
               .catch(err => alert(err.response.data));
       }
+   }
+
+   function addDelProd(tipo){
+      const data = JSON.parse(localStorage.getItem("dataSmartTech"));
+         axios.put(`${import.meta.env.VITE_API_URL}/carrinho/${product._id}/${tipo}`,null, {headers: {Authorization: `Bearer ${data.token}`},})
+              .then(res => {
+                  if (tipo == 'add'){
+                     setQuant(quant++);
+                  } else{
+                     setQuant(quant--);
+                  }
+              })
+              .catch(err => alert(err.response.data));
    }
 
    return (
@@ -30,9 +45,9 @@ export default function ProductInCart({ product, quantidade }) {
          <div className="quantidade">
             <p>Quant.</p>
             <div>
-               <ion-icon name="chevron-back-sharp"></ion-icon>
-               <input type="text" value={quantidade} />
-               <ion-icon name="chevron-forward-sharp"></ion-icon>
+               <ion-icon name="chevron-back-sharp" onClick={() => addDelProd('del')}></ion-icon>
+               <input type="text" value={quant} />
+               <ion-icon name="chevron-forward-sharp" onClick={() => addDelProd('add')}></ion-icon>
             </div>
             <button onClick={deletaProdutos}>
                <ion-icon name="trash-sharp"></ion-icon>
@@ -41,7 +56,7 @@ export default function ProductInCart({ product, quantidade }) {
          </div>
          <div className='price'>
             <p>Preço à vista no PIX:</p>
-            <span>R$ {Number(product.value)*quantidade}</span>
+            <span>R$ {(Number(product.value)*quant).toFixed(2)}</span>
          </div>
       </Container>
    )
