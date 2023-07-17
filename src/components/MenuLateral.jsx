@@ -33,6 +33,7 @@ export default function MenuLateral() {
                  .then(res => {
                     alert('Até a próxima!');
                     navigate('/');
+                    window.location.reload();
                 })
                  .catch(err => alert(err.response.data));
         } else{
