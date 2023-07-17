@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import Footer from "../components/Footer";
@@ -10,9 +10,11 @@ export default function CategoryPage(){
     const params = useParams();
     const { category } = params;
     let [products, setProducts] = useState([]);
-    axios.get(`${import.meta.env.VITE_API_URL}/category/${category}`)
-         .then(res => setProducts(res.data))
-         .catch(erro => alert(erro.response.data));
+    useEffect(() => {
+        axios.get(`${import.meta.env.VITE_API_URL}/category/${category}`)
+             .then(res => setProducts(res.data))
+             .catch(erro => alert(erro.response.data));
+    }, []);
        
         return (
             <>

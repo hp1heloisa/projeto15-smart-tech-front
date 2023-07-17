@@ -17,7 +17,8 @@ export default function NavBar() {
     }
 
     function pesquisar(){
-        console.log(pesquisa);
+        navigate(`/search/${pesquisa}`);
+        window.location.reload();
     }
 
     return(

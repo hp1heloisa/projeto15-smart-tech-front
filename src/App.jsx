@@ -6,6 +6,7 @@ import LogInPage from "./pages/LogInPage";
 import CheckoutPage from "./pages/Checkout/CheckoutPage";
 import styled from "styled-components";
 import CategoryPage from "./pages/CategoryPage";
+import SearchPage from "./pages/SearchPage";
 
 
 export default function App() {
@@ -17,6 +18,7 @@ export default function App() {
           <Route path="/" element={<HomePage/>} />
           <Route path="/produtos/:idProduto" element={<ProductPage />} />
           <Route path="/category/:category" element={<CategoryPage />} />
+          <Route path="/search/:pesquisa" element={<SearchPage />} />
           <Route path="/cadastro" element={<SignUpPage />} />
           <Route path="/login" element={<LogInPage />} />
           <Route path="/check/*" element={<CheckoutPage />} />
