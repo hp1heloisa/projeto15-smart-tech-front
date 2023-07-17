@@ -1,7 +1,19 @@
+import axios from 'axios';
 import styled from 'styled-components'
 
-export default function ProductInCart({ product }) {
+export default function ProductInCart({ product, quantidade }) {
    console.log(product);
+
+   function deletaProdutos(){
+      const data = JSON.parse(localStorage.getItem("dataSmartTech"));
+      const ok = confirm(`Tem certeza que deseja remover todos esses produtos?`);
+      if (ok){
+         axios.put(`${import.meta.env.VITE_API_URL}/carrinho/${product._id}`,null, {headers: {Authorization: `Bearer ${data.token}`},})
+              .then(res => window.location.reload())
+              .catch(err => alert(err.response.data));
+      }
+   }
+
    return (
       <Container>
          <img src={product.image} alt="" />
@@ -19,17 +31,17 @@ export default function ProductInCart({ product }) {
             <p>Quant.</p>
             <div>
                <ion-icon name="chevron-back-sharp"></ion-icon>
-               <input type="text" value='1' />
+               <input type="text" value={quantidade} />
                <ion-icon name="chevron-forward-sharp"></ion-icon>
             </div>
-            <button>
+            <button onClick={deletaProdutos}>
                <ion-icon name="trash-sharp"></ion-icon>
                REMOVER
             </button>
          </div>
          <div className='price'>
             <p>Preço à vista no PIX:</p>
-            <span>R$ {product.value}</span>
+            <span>R$ {Number(product.value)*quantidade}</span>
          </div>
       </Container>
    )
