@@ -52,13 +52,6 @@ export default function CartPage({setTotal}) {
 
                <MainContainer>
                   <LeftContainer>
-                     <div className="CEP wrapper">
-                        <span className="wrapperTitle">
-                           <ion-icon name="location-sharp"></ion-icon>
-                           <p>SELECIONE O ENDEREÇO</p>
-                        </span>
-                       
-                     </div>
                      <div className="titles wrapper">
                         <span className="wrapperTitle">
                            <span>
