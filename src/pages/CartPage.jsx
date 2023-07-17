@@ -2,15 +2,46 @@ import styled from 'styled-components'
 import CartStages from './../components/CartStages'
 import ProductInCart from '../components/productInCart'
 import ResumeCart from '../components/ResumeCart'
+import { useEffect, useState } from 'react'
+import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
 
-export default function CartPage({ products }) {
+export default function CartPage() {
+
+   const navigate = useNavigate();
+
+   let [products, setProducts] = useState([]);
+   let [render, setRender] = useState(0);
+
+   useEffect(() => {
+      const data = JSON.parse(localStorage.getItem("dataSmartTech"));
+      if (data){
+         axios.get(`${import.meta.env.VITE_API_URL}/carrinho`, {headers: {Authorization: `Bearer ${data.token}`}})
+           .then(res => {
+            setProducts(res.data)
+            console.log(products);
+         })
+           .catch(err => alert(err.response.data));
+      }
+   }, [render]);
+
+   function limparCarrinho() {
+      const data = JSON.parse(localStorage.getItem("dataSmartTech"));
+      console.log(data);
+      axios.put(`${import.meta.env.VITE_API_URL}/carrinho/limpa`,null, {headers: {Authorization: `Bearer ${data.token}`},})
+      .then(res => {
+         setRender(res);
+      })
+        .catch(err => alert(err.response.data));
+   }
+
    return (
       <>
          {products.length === 0 ? (
             <EmptyCart>
                <h2>O seu carrinho está vazio</h2>
                <p>Deseja olhar outros produtos similares?</p>
-               <button>
+               <button onClick={() => navigate('/')}>
                   <ion-icon name="cart-sharp"></ion-icon>
                   CONTINUAR COMPRANDO
                </button>
@@ -34,16 +65,13 @@ export default function CartPage({ products }) {
                               <ion-icon name="basket-sharp"></ion-icon>
                               PRODUTO E SERVIÇO
                            </span>
-                           <button>
+                           <button onClick={limparCarrinho}>
                               <ion-icon name="trash-sharp"></ion-icon>
                               REMOVER TODOS OS PRODUTOS
                            </button>
                         </span>
                         <div className="produtos">
-                           <ProductInCart product={products[0]} />
-                           <ProductInCart product={products[1]} />
-                           <ProductInCart product={products[0]} />
-                           <ProductInCart product={products[1]} />
+                           {products.map(product => <ProductInCart product={product} />)}
                         </div>
                      </div>
                   </LeftContainer>
