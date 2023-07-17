@@ -1,8 +1,15 @@
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components"
 
 export default function NotePayment({order}) {
     console.log(order);
     
+    const navigate = useNavigate();
+    
+    const code = order._id.substring(order._id.length - 10);
+
+    
+
     return (
         <Container>
             <div className="ContainerRight">
@@ -13,19 +20,19 @@ export default function NotePayment({order}) {
 
                 <div id="valorProdutos">
                     <p>
-                        Código do Pedido: <span>8493428738</span>
+                        Código do Pedido: <span>{code}</span>
                     </p>
                     <hr />
                 </div>
                 <div id="valorProdutos">
                     <p>
-                        Data da compra: <span>12/12/23</span>
+                        Data da compra: <span>{order.time}</span>
                     </p>
                     <hr />
                 </div>
                 <div id="valorProdutos">
                     <p>
-                        Formade pagamento: <span>Cartão</span>
+                        Formade pagamento: <span>{order.method}</span>
                     </p>
                     <hr />
                 </div>
@@ -39,13 +46,13 @@ export default function NotePayment({order}) {
                 <div id="valorNoPix">
                     <p>Valor Pago:</p>
                     <div>
-                        <span>R$ 8.934,97</span>
+                        <span>R$ {order.value}</span>
                     </div>
                 </div>
 
                 <div id="botoes">
                     <button>RECEBER NOTA NO E-MAIL</button>
-                    <button>CONTINUAR COMPRANDO</button>
+                    <button onClick={() => navigate("/")}>CONTINUAR COMPRANDO</button>
                 </div>
             </div>
         </Container>

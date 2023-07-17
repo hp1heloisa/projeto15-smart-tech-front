@@ -3,6 +3,7 @@ import CartStages from "../components/CartStages"
 import { useState } from "react"
 import api from "../services/api"
 import { useNavigate } from "react-router-dom"
+import axios from "axios"
 
 export default function PaymentPage(props) {
   const {total, metodo, setMetodo, setOrder} = props
@@ -12,6 +13,16 @@ export default function PaymentPage(props) {
   function setarCartao() { setMetodo('Cartão de Crédito') }
   function setarPix() { setMetodo('Pix') }
 
+  function limparCarrinho() {
+    const data = JSON.parse(localStorage.getItem("dataSmartTech"));
+    console.log(data);
+    axios.put(`${import.meta.env.VITE_API_URL}/carrinho/limpa`,null, {headers: {Authorization: `Bearer ${data.token}`},})
+    .then(res => {
+       setRender(res);
+    })
+      .catch(err => alert(err.response.data));
+ }
+
   function concludeOrder(){
     const data = JSON.parse(localStorage.getItem("dataSmartTech"));
 
@@ -20,6 +31,7 @@ export default function PaymentPage(props) {
     const promise = api.conclude(body, data.token)
     promise.then(res => {
       setOrder(res.data);
+      limparCarrinho();
       navigate("/check/concluido");
     });
     promise.catch(err => {
