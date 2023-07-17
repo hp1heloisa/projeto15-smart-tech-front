@@ -6,6 +6,7 @@ import { Container } from './CheckoutrPage.style'
 import CartPage from '../CartPage'
 import PaymentPage from "../PaymentPage";
 import { useEffect } from "react";
+import ConclusionPage from "../ConclusionPage";
 
 
 export default function CheckoutPage() {
@@ -80,6 +81,7 @@ export default function CheckoutPage() {
          <Routes>
             <Route path="/carrinho" element={<CartPage products={products} />}></Route>
             <Route path="/pagamento" element={<PaymentPage />}></Route>
+            <Route path="/concluido" element={<ConclusionPage />}></Route>
          </Routes>
 
          <Footer />

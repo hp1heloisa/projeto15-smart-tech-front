@@ -11,19 +11,11 @@ export default function CartStages() {
          </span>
          <span>
             <hr />
-            <ion-icon name="person-sharp"></ion-icon> Identificação
-         </span>
-         <span>
-            <hr />
             <ion-icon name="card-outline"></ion-icon> Pagamento
          </span>
          <span>
             <hr />
-            <ion-icon name="eye-sharp"></ion-icon> Confirmação
-         </span>
-         <span>
-            <hr />
-            <ion-icon name="checkmark-circle-sharp"></ion-icon> Concluir
+            <ion-icon name="checkmark-circle-sharp"></ion-icon> Concluído
          </span>
       </Container>
    )
