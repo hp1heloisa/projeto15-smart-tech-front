@@ -7,15 +7,15 @@ export default function CartStages() {
    return (
       <Container location={location.pathname.split('/')[2]}>
          <span>
-            <ion-icon name="cart-sharp"></ion-icon> Carrinho
-         </span>
-         <span>
-            <hr />
             <ion-icon name="card-outline"></ion-icon> Pagamento
          </span>
          <span>
             <hr />
             <ion-icon name="checkmark-circle-sharp"></ion-icon> Concluído
+         </span>
+         <span>
+
+            
          </span>
       </Container>
    )
