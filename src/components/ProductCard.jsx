@@ -13,10 +13,15 @@ export default function ProductCard(props) {
     function addCart(e){
         e.stopPropagation();
         const data = JSON.parse(localStorage.getItem("dataSmartTech"));
-        console.log("Adicionar ao carrinho");
-        axios.put(`${import.meta.env.VITE_API_URL}/addproduto`, {idProduct: product._id},  {headers: {Authorization: `Bearer ${data.token}`}})
-             .then(res => alert('Produto adicionado ao carrinho!'))
-             .catch(err => alert(err.response.data));
+        if (data){
+            console.log("Adicionar ao carrinho");
+            axios.put(`${import.meta.env.VITE_API_URL}/addproduto`, {idProduct: product._id},  {headers: {Authorization: `Bearer ${data.token}`}})
+                 .then(res => alert('Produto adicionado ao carrinho!'))
+                 .catch(err => alert(err.response.data));
+        } else{
+            alert('Faça seu login para adicionar o produto ao carrinho!');
+            navigate('/login');            
+        }
     }
 
     return (

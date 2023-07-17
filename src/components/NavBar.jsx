@@ -23,12 +23,19 @@ export default function NavBar() {
         }
     }
 
+    function handleKeyPress(event) {
+        if (event.key === 'Enter') {
+            pesquisar();
+        }
+    }
+
     return(
         <ContainerGeral>
                 <MenuLateral />
                 <LogoImage onClick={backToHome} src={Logo} alt="Logo-image" />
                 <SearchBar>
-                    <input placeholder="Pesquisar produto..." type="text" value={pesquisa} onChange={e => setPesquisa(e.target.value)} required/>
+                    <input placeholder="Pesquisar produto..." type="text" value={pesquisa} 
+                    onChange={e => setPesquisa(e.target.value)} onKeyPress={handleKeyPress} required/>
                     <img src={Lupa} alt="lupa-icon" onClick={pesquisar}/>
                 </SearchBar>
                 <Welcome />
