@@ -1,14 +1,17 @@
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 
 export default function ResumeCart({setTotal, products}) {
    const navigate = useNavigate();
-
    let total = 0;
    products.forEach(product => {
       total += product[0].value*product[1];
-   })
+      })
+   useEffect(() => {
+      setTotal(total);
+   }, []);
    return (
       <Container>
          <div className="ContainerRight">
