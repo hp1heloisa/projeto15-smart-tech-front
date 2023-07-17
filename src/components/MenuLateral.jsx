@@ -32,8 +32,8 @@ export default function MenuLateral() {
             axios.delete(`${import.meta.env.VITE_API_URL}/logout`, {headers: {Authorization: `Bearer ${data.token}`}})
                  .then(res => {
                     alert('Até a próxima!');
-                    navigate('/');
                     window.location.reload();
+                    navigate('/');
                 })
                  .catch(err => alert(err.response.data));
         } else{
