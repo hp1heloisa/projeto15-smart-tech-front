@@ -64,7 +64,7 @@ export default function MenuLateral() {
                                     <div onClick={() => goCategory('/category/Celulares')}><ion-icon name="caret-forward-sharp"></ion-icon> Celular</div>
                                     <div onClick={() => goCategory('/category/Cadeiras-Gamer')}><ion-icon name="caret-forward-sharp"></ion-icon> Cadeira Gamer</div>
                             </div>
-                            <div>
+                            <div  onClick={() => navigate('/check/carrinho')}>
                                 <ion-icon name="cart"></ion-icon>
                                 <p>Carrinho</p>
                             </div>

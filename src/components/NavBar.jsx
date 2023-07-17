@@ -29,7 +29,7 @@ export default function NavBar() {
                     <img src={Lupa} alt="lupa-icon" onClick={pesquisar}/>
                 </SearchBar>
                 <Welcome />
-                <Cart>
+                <Cart onClick={() => navigate('/check/carrinho')}>
                     <ion-icon name="cart"></ion-icon>
                 </Cart>
         </ContainerGeral>
